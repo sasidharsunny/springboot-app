@@ -58,7 +58,7 @@ pipeline {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8S', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') 
                 {
      sh 'kubectl apply -f workloads.yaml'
-'
+
 }
                 }
             }
