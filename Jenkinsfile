@@ -52,12 +52,18 @@ pipeline {
                 }
             }
         }
-  stage('Integrate Jenkins with EKS Cluster and Deploy') {
-                steps {
-               withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s-jenkins', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
-               sh 'kubectl apply -f workloads.yaml'
+       stage('K8S Deploy') {
+        steps{   
+            script {
+                withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8S', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+    sh "kubectl apply -f eks-deploy-k8s.yaml"
 }
                 }
+            }
+        }
+       }
+    }
+}
             }
         
     }
