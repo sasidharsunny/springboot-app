@@ -55,10 +55,8 @@ pipeline {
        stage('K8S Deploy') {
         steps{   
             script {
-                withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8S', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') 
-                {
-     sh 'kubectl apply -f workloads.yaml'
-
+withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8S', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+sh 'kubectl apply -f workloads.yaml'
 }
                 }
             }
