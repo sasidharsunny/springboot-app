@@ -1,11 +1,11 @@
 pipeline {
-    agent dev
+     agent {label 'dev'}
  
 
     stages {
         stage("Checkout the project") {
             steps {
-               sh  echo "hello-world"
+               sh  'echo "hello-world"'
             }
         }
   
